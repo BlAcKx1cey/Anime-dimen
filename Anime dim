@@ -44,7 +44,7 @@ if game.GameId == 2655311011 then
     local VirtualInputManager   = game:GetService("VirtualInputManager")
     local Players               = game:GetService("Players")
     local VirtualUser           = game:GetService("VirtualUser")
-    local TweenService          = game:GetService("TweenService")
+   
     local Player                = Players.LocalPlayer
 
     Player.Idled:Connect(function()
