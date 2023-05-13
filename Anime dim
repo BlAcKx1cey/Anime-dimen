@@ -107,25 +107,7 @@ if game.GameId == 2655311011 then
 
             startGame()
 
-            task.spawn(function()
-                while task.wait() do
-                    if not _G.Settings.AutoFarm then break end
-                    pcall(function()
-                        for i, v in pairs(game:GetService("Workspace").Folders.Monsters:GetChildren()) do 
-                            if v:FindFirstChild("EnemyHealthBarGui") then
-                                if _G.Settings.AutoDistance then
-                                    lol = -(v.HumanoidRootPart.Size.Y + 5.5)
-                                end
-                                repeat task.wait()
-                                    tween(v.HumanoidRootPart);task.spawn(click)
-                                until v.EnemyHealthBarGui == nil or not _G.Settings.AutoFarm
-                            end
-                        end
-                    end)
-                end
-            end)
-        end 
-    })
+            
 
     SettingFolder:AddList({
         text = "Select Map", 
