@@ -1,263 +1,161 @@
-if game.GameId == 2655311011 then
 
-    if not game:IsLoaded() then game.Loaded:Wait() end
 
-    _G.Settings = {
-        MapName         = "Titan Dimension";
-        Difficulty      = "Easy";
-        Hardcore        = false;
-        FriendsOnly     = false;
-        AutoFarm        = false;
-        AutoRetry       = false;
-        AutoSkill       = false;
-        AutoDistance    = false;
-        Distance        = 0;
-        Speed           = 69;
-    }
+_G.AutoDodgeSkill = true
 
-    local foldername = "Uzu"
-    local filename = "NewAnimeDimension.lua"
-     
-    function saveSettings()
-        local HttpService = game:GetService("HttpService")
-        local json = HttpService:JSONEncode(_G.Settings)
-        if (writefile) then
-            if isfolder(foldername) then
-                writefile(foldername.."\\"..filename, json)
-            else
-                makefolder(foldername)
-                writefile(foldername.."\\"..filename, json)
-            end
-        end
-    end
-     
-    function loadSettings()
-        local HttpService = game:GetService("HttpService")
-        if isfile(foldername.."\\"..filename) then
-            _G.Settings = HttpService:JSONDecode(readfile(foldername.."\\"..filename))
-        end
-    end
-     
-    loadSettings()
+_G.NameProof = true
 
-    local ReplicatedStorage     = game:GetService("ReplicatedStorage")
-    local VirtualInputManager   = game:GetService("VirtualInputManager")
-    local Players               = game:GetService("Players")
-    local VirtualUser           = game:GetService("VirtualUser")
-   
-    local Player                = Players.LocalPlayer
+_G.NoClipAfter = 999
 
-    Player.Idled:Connect(function()
-        VirtualUser:ClickButton2(Vector2.new())
-    end)
+_G.DodgeSize = 2.25
 
-    local MapList = {
-        "Infinite Mode",
-        "Titan Dimension",
-        "Demon Dimension",
-        "Curse Dimension",
-        "Villain Dimension",
-        "Sword Dimension",
-        "Ghoul Dimension",
-        "Fate Dimension"
-    }
+local list = {
 
-    local MapDifficulty = {
-        "Infinite",
-        "Easy",
-        "Hard",
-        "Nightmare",
-    }
+   name = {"telegraph"},
 
-    
+   ping = 90,
 
-    function startGame()
-        task.spawn(function()
-            local args = {
-                "CreateRoom",
-                {
-                    ["Difficulty"] = _G.Settings.Difficulty,
-                    ["FriendsOnly"] = _G.Settings.FriendsOnly,
-                    ["MapName"] = _G.Settings.MapName,
-                    ["Hardcore"] = _G.Settings.Hardcore
-                }
-            }
-            ReplicatedStorage.RemoteFunctions.MainRemoteFunction:InvokeServer(unpack(args))
-            wait()
-            ReplicatedStorage.RemoteFunctions.MainRemoteFunction:InvokeServer("TeleportPlayers")
-        end)
-    end 
-    
-    
-        
-   
+   get_ping_cd = false,
 
-    local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/uzu01/lua/main/ui/uwuware.lua"))()
-    local window = library:CreateWindow("Anime Dimension")
-    local FarmingFolder = window:AddFolder("Farming")
-    local SettingFolder = window:AddFolder("Settings")
-    local MiscFolder = window:AddFolder("Credits")
+}
 
-    FarmingFolder:AddToggle({
-        text = "Enabled", 
-        state = _G.Settings.AutoFarm,
-        callback = function(a) 
-            _G.Settings.AutoFarm = a
-            saveSettings()
+if _G.Rec then _G.Rec:Disconnect() _G.Rec = nil end
 
-            startGame()
+_G.Rec = workspace.Folders.Debris.ChildAdded:Connect(function(v)
 
-            
+   if _G.AutoDodgeSkill and table.find(list.name,v.Name:lower()) and v.Material ~= Enum.Material.Neon then
 
-    SettingFolder:AddList({
-        text = "Select Map", 
-        value = _G.Settings.MapName,
-        values = MapList, 
-        callback = function(a) 
-            _G.Settings.MapName = a
-            saveSettings() 
-        end
-    })  
+       local op = v.Material
 
-    SettingFolder:AddList({
-        text = " Select Difficulty", 
-        value = _G.Settings.Difficulty,
-        values = MapDifficulty, 
-        callback = function(a) 
-            _G.Settings.Difficulty = a
-            saveSettings() 
-        end
-    })
+       wait(.4-(GetPing()))
 
-    SettingFolder:AddToggle({
-        text = "Friends Only", 
-        state = _G.Settings.FriendsOnly,
-        callback = function(a) 
-            _G.Settings.FriendsOnly = a
-            saveSettings()
-        end
-    })
+       local a = v:Clone()
 
-    SettingFolder:AddToggle({
-        text = "Hardcore", 
-        state = _G.Settings.Hardcore,
-        callback = function(a) 
-            _G.Settings.Hardcore = a
-            saveSettings()
-        end
-    })
+       local side = math.clamp(_G.DodgeSize,1.5,3)
 
-    SettingFolder:AddToggle({
-        text = "Auto Retry", 
-        state = _G.Settings.AutoRetry,
-        callback = function(a) 
-            _G.Settings.AutoRetry = a
-            saveSettings()
-          
-            task.spawn(function()
-                while task.wait(1) do
-                    if not _G.Settings.AutoRetry then break end
-                    if Player.PlayerGui.UniversalGui.UniversalCenterUIFrame.ResultUI.Visible == true then
-                        ReplicatedStorage.RemoteEvents.MainRemoteEvent:FireServer("RetryDungeon")
-                        break
-                    end
-                end
-            end)
-        end
-    })
+       local Sizeto = v.Size + Vector3.new(side,100,side)
 
-    SettingFolder:AddToggle({
-        text = "Auto Skill", 
-        state = _G.Settings.AutoSkill,
-        callback = function(a) 
-            _G.Settings.AutoSkill = a
-            saveSettings()
+       a.Size = Vector3.new(0,100,v.Size.Z)
 
-            task.spawn(function()
-                while task.wait(1.5) do
-                    if not _G.Settings.AutoSkill then break end
-                    if SkillFrame.Skill1.Image ~= "rbxassetid://6797200424" then
-                        Skill("One")
-                        task.wait(1)
-                    end
-                    if SkillFrame.Skill2.Image ~= "rbxassetid://6797200424" then
-                        Skill("Two")
-                        task.wait(1)
-                    end
-                    if SkillFrame.Skill3.Image ~= "rbxassetid://6797200424" then
-                        Skill("Three")
-                        task.wait(1)
-                    end
-                    if SkillFrame.Skill4.Image ~= "rbxassetid://6797200424" then
-                        Skill("Four")
-                        task.wait(1)
-                    end
-                    if SkillFrame.SkillAssist1.Image ~= "rbxassetid://6797200424" then
-                        Skill("E")
-                        task.wait(1)
-                    end
-                    if SkillFrame.SkillAssist2.Image ~= "rbxassetid://6797200424" then
-                        Skill("R")
-                        task.wait(1)
-                    end
-                end
-            end)
-        end
-    })
+       if v.ClassName == "MeshPart" then
 
-    SettingFolder:AddToggle({
-        text = "Auto Distance", 
-        state = _G.Settings.AutoDistance,
-        callback = function(a) 
-            _G.Settings.AutoDistance = a
-            saveSettings()
-        end
-    })
+           a.Size = Vector3.new(0,0,100)
 
-    SettingFolder:AddSlider({
-        text = "Distance",
-        value = _G.Settings.Distance,
-        min = -30, 
-        max = 30, 
-        callback = function(a) 
-            _G.Settings.Distance = a 
-            saveSettings()
-        end
-    })
+           Sizeto = v.Size + Vector3.new(side,side,100)
 
-    SettingFolder:AddSlider({
-        text = "Speed",
-        value = _G.Settings.Speed,
-        min = 10, 
-        max = 200, 
-        callback = function(a) 
-            _G.Settings.Speed = a 
-            saveSettings()
-        end
-    })
+       end
 
-    MiscFolder:AddBind({
-        text = "Toggle GUI", 
-        key = "LeftControl", 
-        callback = function() 
-            library:Close()
-        end
-    })
+       game:GetService("TweenService"):Create(a,TweenInfo.new(0.08),{Size = Sizeto}):Play()
 
-    MiscFolder:AddButton({
-        text = "Script by Uzu",
-        callback = function()
-            setclipboard("discord.gg/waAsQFwcBn")
-        end
-    })
+       a.Anchored = true
 
-    MiscFolder:AddButton({
-        text = "Discord",
-        callback = function()
-            setclipboard("discord.gg/waAsQFwcBn")
-        end
-    })
-    
-    library:Init()
+       a.Transparency = 1
+
+       a.CanCollide = true
+
+       a.Name = "DODGEPART"
+
+       a.Parent = v.Parent
+
+       local start = tick()
+
+       repeat
+
+           wait()
+
+       until tick() - start > _G.NoClipAfter or not v.Parent
+
+       a:Destroy()
+
+   end
+
+end)
+
+local Barrier = workspace.GameMap:FindFirstChild("Barrier",true)
+
+if Barrier then Barrier:ClearAllChildren() end
+
+function GetPing()
+
+   spawn(function()
+
+       if not list.get_ping_cd then
+
+           list.get_ping_cd = true
+
+           local PacketSend = tick()
+
+           local Packet = game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer("CompleteDailyQuest","DailyQuest_DungeonClear")
+
+           repeat task.wait() until Packet
+
+           local Ping = tick() - PacketSend
+
+           list.ping = Ping
+
+           delay(1,function()
+
+               list.get_ping_cd = false
+
+           end)
+
+       end
+
+   end)
+
+   return list.ping
 
 end
+
+function Connection(Char)
+
+   local Human = Char:WaitForChild("Humanoid")
+
+   local Root = Char:WaitForChild("HumanoidRootPart")
+
+   local Name = Char:FindFirstChild("PlayerName",true)
+
+   if _G.NameProof and Name then Name:Destroy() end
+
+   while task.wait() do
+
+       if not Root then break end
+
+       local SpawnLocation = game.Players.LocalPlayer.RespawnLocation
+
+       local CFR = Root.CFrame
+
+       if SpawnLocation.Position.Y - CFR.p.Y > 30 then
+
+           local RayParams = RaycastParams.new()
+
+           RayParams.FilterDescendantsInstances = Char:GetDescendants()
+
+           RayParams.FilterType = Enum.RaycastFilterType.Blacklist
+
+           local Ray = workspace:Raycast(CFR.p,Vector3.new(0,-100,0),RayParams)
+
+           if Ray then
+
+               Root.CFrame = CFrame.new(CFR.X,SpawnLocation.Position.Y+15,CFR.Z)
+
+           else
+
+               Root.CFrame = SpawnLocation.CFrame
+
+           end
+
+       end
+
+       Human:SetStateEnabled(14,false)
+
+       Human:SetStateEnabled(1,false)
+
+       if not Char then break end
+
+   end
+
+end
+
+game.Players.LocalPlayer.CharacterAdded:Connect(Connection)
+
+Connection(game.Players.LocalPlayer.Character)
