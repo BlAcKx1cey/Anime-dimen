@@ -1,5 +1,4 @@
-repeat task.wait() until game:IsLoaded()
-task.wait(1200)
-local args = {     [1] = "TeleportToRaidLobby" }  
-  game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(unpack(args)) 
-  
+```lua
+Intruderskey = "DPLenQ4SuZey"
+loadstring(game:HttpGet"https://raw.githubusercontent.com/lifaiossama/errors/main/Intruders.html")()
+```
