@@ -1,44 +1,5 @@
 
 
-
-
-
-
-getgenv().Map = "hiddenleafvillage" -- City, Subzero, Jungle, Military, Japan, Castle, Space, Asgard, Atlantis, Dark Dimension, Marineford, Trost District, Planet Namek, Kamii University 
-getgenv().Difficulty = "Hard" -- Easy, Normal, Hard, Insane 
--- Determines how close to the front and back of the map troops are placed. FrontPreference should be >= 0, BackPreference should be <= 0. The acceptable range for both variables changes depending on the map, use single integer increments and only change this setting if you understand what it does. 
-
-local RS = game:GetService("ReplicatedStorage") 
-local PS = game:GetService("Players") 
-repeat wait() until PS.LocalPlayer repeat wait() until PS.LocalPlayer.Character repeat wait() until PS.LocalPlayer.Character.HumanoidRootPart 
-local HRP = PS.LocalPlayer.Character.HumanoidRootPart 
-
-wait(1) 
-
-local args = { 
-[1] = "HiddenLeafVillage" 
-} 
-
-game:GetService("ReplicatedStorage").Modules.GlobalInit.RemoteEvents.PlayerSelectedMap:FireServer(unpack(args)) 
-
-
-if game.PlaceId == 5902977746 and not workspace:FindFirstChild("Map") then 
- local RE = RS.Modules.GlobalInit.RemoteEvents 
- for _,v in pairs(workspace.Lobby.ClassicPartyTeleporters:GetDescendants()) do 
- if v:IsA("TextLabel") and v.Name == "Status" and v.Text == "0 Players" then 
- HRP.CFrame = v.Parent.Parent.CFrame 
- wait(3/2) 
- RE.PlayerSelectedMap:FireServer(Map) 
- wait(3/2) 
- RE.PlayerQuickstartTeleport:FireServer() 
- wait(3/2) 
- end 
-
-
- 
- end end 
-
-
 getgenv().place = true
 
 getgenv().level = true
