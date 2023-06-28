@@ -1,4 +1,232 @@
-```lua
-Intruderskey = "DPLenQ4SuZey"
-loadstring(game:HttpGet"https://raw.githubusercontent.com/lifaiossama/errors/main/Intruders.html")()
-```
+
+
+
+
+
+
+getgenv().Map = "hiddenleafvillage" -- City, Subzero, Jungle, Military, Japan, Castle, Space, Asgard, Atlantis, Dark Dimension, Marineford, Trost District, Planet Namek, Kamii University 
+getgenv().Difficulty = "Hard" -- Easy, Normal, Hard, Insane 
+-- Determines how close to the front and back of the map troops are placed. FrontPreference should be >= 0, BackPreference should be <= 0. The acceptable range for both variables changes depending on the map, use single integer increments and only change this setting if you understand what it does. 
+
+local RS = game:GetService("ReplicatedStorage") 
+local PS = game:GetService("Players") 
+repeat wait() until PS.LocalPlayer repeat wait() until PS.LocalPlayer.Character repeat wait() until PS.LocalPlayer.Character.HumanoidRootPart 
+local HRP = PS.LocalPlayer.Character.HumanoidRootPart 
+
+wait(1) 
+
+local args = { 
+[1] = "HiddenLeafVillage" 
+} 
+
+game:GetService("ReplicatedStorage").Modules.GlobalInit.RemoteEvents.PlayerSelectedMap:FireServer(unpack(args)) 
+
+
+if game.PlaceId == 5902977746 and not workspace:FindFirstChild("Map") then 
+ local RE = RS.Modules.GlobalInit.RemoteEvents 
+ for _,v in pairs(workspace.Lobby.ClassicPartyTeleporters:GetDescendants()) do 
+ if v:IsA("TextLabel") and v.Name == "Status" and v.Text == "0 Players" then 
+ HRP.CFrame = v.Parent.Parent.CFrame 
+ wait(3/2) 
+ RE.PlayerSelectedMap:FireServer(Map) 
+ wait(3/2) 
+ RE.PlayerQuickstartTeleport:FireServer() 
+ wait(3/2) 
+ end 
+
+
+ 
+ end end 
+
+
+getgenv().place = true
+
+getgenv().level = true
+
+ 
+
+local RS = game:GetService("ReplicatedStorage") 
+
+local PS = game:GetService("Players") 
+
+repeat wait() until PS.LocalPlayer repeat wait() until PS.LocalPlayer.Character repeat wait() until PS.LocalPlayer.Character.HumanoidRootPart 
+
+local HRP = PS.LocalPlayer.Character.HumanoidRootPart 
+
+
+local args = { 
+
+[1] = "Insane" 
+
+} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerVoteForDifficulty:FireServer(unpack(args)) 
+
+
+
+spawn(function() 
+
+while getgenv().place == true do 
+
+
+wait(.5) 
+
+local args = {
+    [1] = 1,
+    [2] = Vector3.new(-3019.10693359375, -72.62808227539062, 55.125396728515625)
+}
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args))
+
+local args = { 
+
+[1] = 3, 
+
+[2] = Vector3.new(-3022.66015625, -72.62808227539062, 56.176841735839844)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+[1] = 3, 
+
+[2] = Vector3.new(-3021.430908203125, -72.62808227539062, 64.20709228515625)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 4, 
+
+[2] = Vector3.new(-3031.86767578125, -72.62808227539062, 60.58892822265625)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 5, 
+
+[2] = Vector3.new(-3016.05419921875, -72.62808227539062, 64.57074737548828)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 5, 
+
+[2] = Vector3.new(-3016.153564453125, -72.62808227539062, 55.992881774902344)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 2, 
+
+[2] = Vector3.new(-3013.25927734375, -72.62808227539062, 56.59131622314453)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 1, 
+
+[2] = Vector3.new(-3017.529296875, -72.62808227539062, 57.035179138183594)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+
+local args = { 
+
+[1] = 6, 
+
+[2] = Vector3.new(-3016.13134765625, -72.62808227539062, 82.45782470703125)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 6, 
+
+[2] = Vector3.new(-3016.126708984375, -72.62808227539062, 86.09553527832031)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 6, 
+
+[2] = Vector3.new(-3019.879638671875, -72.62808227539062, 85.10572052001953)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 6, 
+
+[2] = Vector3.new(-3019.85791015625, -72.62808227539062, 82.46489715576172)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+local args = { 
+
+[1] = 6, 
+
+[2] = Vector3.new(-3019.85791015625, -72.62808227539062, 82.46489715576172)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+
+local args = { 
+
+[1] = 6, 
+
+[2] = Vector3.new(-3023.613037109375, -72.62808227539062, 84.28661346435547)} 
+
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
+
+
+end end) 
+
+
+
+spawn(function() 
+
+while getgenv().level == true do 
+
+wait(11) 
+
+for i = 1, 200 do 
+
+game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerUpgradeTower:FireServer(tostring(i))
+
+
+
+
+end end 
+
+end) 
