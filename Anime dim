@@ -1,9 +1,11 @@
-
 local args = {
     [1] = "Insane"
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerVoteForDifficulty"):FireServer(unpack(args))
+wait()
+game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerReadyForNextWave"):FireServer()
+
 spawn(function()
 _G.place = true
 while _G.place == true do 
