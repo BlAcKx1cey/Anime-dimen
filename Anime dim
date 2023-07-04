@@ -1,193 +1,100 @@
-
-
-getgenv().place = true
-
-getgenv().level = true
-
- 
-
-local RS = game:GetService("ReplicatedStorage") 
-
-local PS = game:GetService("Players") 
-
-repeat wait() until PS.LocalPlayer repeat wait() until PS.LocalPlayer.Character repeat wait() until PS.LocalPlayer.Character.HumanoidRootPart 
-
-local HRP = PS.LocalPlayer.Character.HumanoidRootPart 
-
-
-local args = { 
-
-[1] = "Insane" 
-
-} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerVoteForDifficulty:FireServer(unpack(args)) 
-
-
-
-spawn(function() 
-
-while getgenv().place == true do 
-
-
-wait(.5) 
-
+spawn(function()
 local args = {
-    [1] = 1,
-    [2] = Vector3.new(-3019.10693359375, -72.62808227539062, 55.125396728515625)
+    [1] = "Insane"
 }
 
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args))
-
-local args = { 
-
-[1] = 3, 
-
-[2] = Vector3.new(-3022.66015625, -72.62808227539062, 56.176841735839844)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-[1] = 3, 
-
-[2] = Vector3.new(-3021.430908203125, -72.62808227539062, 64.20709228515625)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 4, 
-
-[2] = Vector3.new(-3031.86767578125, -72.62808227539062, 60.58892822265625)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 5, 
-
-[2] = Vector3.new(-3016.05419921875, -72.62808227539062, 64.57074737548828)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 5, 
-
-[2] = Vector3.new(-3016.153564453125, -72.62808227539062, 55.992881774902344)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 2, 
-
-[2] = Vector3.new(-3013.25927734375, -72.62808227539062, 56.59131622314453)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 1, 
-
-[2] = Vector3.new(-3017.529296875, -72.62808227539062, 57.035179138183594)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-
-local args = { 
-
-[1] = 6, 
-
-[2] = Vector3.new(-3016.13134765625, -72.62808227539062, 82.45782470703125)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 6, 
-
-[2] = Vector3.new(-3016.126708984375, -72.62808227539062, 86.09553527832031)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 6, 
-
-[2] = Vector3.new(-3019.879638671875, -72.62808227539062, 85.10572052001953)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 6, 
-
-[2] = Vector3.new(-3019.85791015625, -72.62808227539062, 82.46489715576172)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-local args = { 
-
-[1] = 6, 
-
-[2] = Vector3.new(-3019.85791015625, -72.62808227539062, 82.46489715576172)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-
-local args = { 
-
-[1] = 6, 
-
-[2] = Vector3.new(-3023.613037109375, -72.62808227539062, 84.28661346435547)} 
-
-
-game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerPlaceTower:FireServer(unpack(args)) 
-
-
-end end) 
-
-
-
-spawn(function() 
-
-while getgenv().level == true do 
-
-wait(11) 
-
-for i = 1, 200 do 
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerVoteForDifficulty"):FireServer(unpack(args))
+
+_G.place = true
+while _G.place == true do 
+wait()
+local args = {
+    [1] = "159068388:40346",
+    [2] = Vector3.new(-3023.340576171875, -72.62808227539062, 53.228363037109375)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+
+local args = {
+    [1] = "159068388:40346",
+    [2] = Vector3.new(-3023.639892578125, -72.62808227539062, 65.21603393554688)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+
+local args = {
+    [1] = "159068388:729",
+    [2] = Vector3.new(-3019.9384765625, -72.62808227539062, 64.97915649414062)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+
+local args = {
+    [1] = "159068388:729",
+    [2] = Vector3.new(-3020.384765625, -72.12796020507812, 57.731712341308594)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+local args = {
+    [1] = "159068388:16692",
+    [2] = Vector3.new(-3032.300537109375, -72.62808227539062, 60.465599060058594)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+local args = {
+    [1] = "159068388:3106",
+    [2] = Vector3.new(-3032.569580078125, -72.62808227539062, 54.6380615234375)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+local args = {
+    [1] = "159068388:933",
+    [2] = Vector3.new(-3034.23095703125, -72.62808227539062, 64.76285552978516)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+local args = {
+    [1] = "159068388:7115",
+    [2] = Vector3.new(-3021.955810546875, -72.62808227539062, 85.64746856689453)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+local args = {
+    [1] = "159068388:7115",
+    [2] = Vector3.new(-3026.59130859375, -72.62808227539062, 85.10588836669922)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+local args = {
+    [1] = "159068388:7115",
+    [2] = Vector3.new(-3024.703125, -72.62808227539062, 80.59586334228516)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+local args = {
+    [1] = "159068388:7115",
+    [2] = Vector3.new(-3028.994384765625, -72.62808227539062, 81.00731658935547)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+local args = {
+    [1] = "159068388:7115",
+    [2] = Vector3.new(-3031.193359375, -72.62808227539062, 84.59910583496094)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+ end end) 
+ spawn(function()
+wait(11)
+
+ _G.l = true
+wait()
+	while _G.l == true do
+		for i = 1, 200 do 
 
 game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerUpgradeTower:FireServer(tostring(i))
 
 
 
-
-end end 
-
-end) 
+	end 	
+		end end)
