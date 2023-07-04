@@ -1,10 +1,10 @@
-spawn(function()
+
 local args = {
     [1] = "Insane"
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerVoteForDifficulty"):FireServer(unpack(args))
-
+spawn(function()
 _G.place = true
 while _G.place == true do 
 wait()
@@ -14,82 +14,91 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
-
+wait()
 local args = {
     [1] = "159068388:40346",
     [2] = Vector3.new(-3023.639892578125, -72.62808227539062, 65.21603393554688)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
-
+wait()
 local args = {
     [1] = "159068388:729",
     [2] = Vector3.new(-3019.9384765625, -72.62808227539062, 64.97915649414062)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
-
+wait()
 local args = {
     [1] = "159068388:729",
     [2] = Vector3.new(-3020.384765625, -72.12796020507812, 57.731712341308594)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+wait()
 local args = {
     [1] = "159068388:16692",
     [2] = Vector3.new(-3032.300537109375, -72.62808227539062, 60.465599060058594)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+wait()
 local args = {
     [1] = "159068388:3106",
     [2] = Vector3.new(-3032.569580078125, -72.62808227539062, 54.6380615234375)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+wait()
 local args = {
     [1] = "159068388:933",
     [2] = Vector3.new(-3034.23095703125, -72.62808227539062, 64.76285552978516)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+wait()
 local args = {
     [1] = "159068388:7115",
     [2] = Vector3.new(-3021.955810546875, -72.62808227539062, 85.64746856689453)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+wait()
 local args = {
     [1] = "159068388:7115",
     [2] = Vector3.new(-3026.59130859375, -72.62808227539062, 85.10588836669922)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+wait()
 local args = {
     [1] = "159068388:7115",
     [2] = Vector3.new(-3024.703125, -72.62808227539062, 80.59586334228516)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+wait()
 local args = {
     [1] = "159068388:7115",
     [2] = Vector3.new(-3028.994384765625, -72.62808227539062, 81.00731658935547)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
+wait()
 local args = {
     [1] = "159068388:7115",
     [2] = Vector3.new(-3031.193359375, -72.62808227539062, 84.59910583496094)
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("GenericModules"):WaitForChild("Service"):WaitForChild("Network"):WaitForChild("PlayerPlaceTower"):FireServer(unpack(args))
- end end) 
+ end end) wait(10) 
  spawn(function()
 wait(11)
 
  _G.l = true
 wait()
 	while _G.l == true do
+wait()
 		for i = 1, 200 do 
 
 game:GetService("ReplicatedStorage").GenericModules.Service.Network.PlayerUpgradeTower:FireServer(tostring(i))
